@@ -8,10 +8,7 @@ namespace WordWeight.Nodes
 {
     class Onode : Node
     {
-        public Onode() : base()
-        {
-
-        }
+        public Onode() : base() { }
 
         public void addWord(string word)
         {

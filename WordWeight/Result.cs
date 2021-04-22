@@ -23,12 +23,12 @@ namespace WordWeight
             if(node is Cnode)
             {
                 this.characters = new string(((Cnode)node).character,1);
-                this.weight = ((Cnode)node).occurence;
+                this.weight = ((Cnode)node).frequency;
             }
             else if(node is Enode)
             {
                 this.characters = ((Enode)node).word;
-                this.weight = 0; //this will put it at the end of the list but that's fine for now.
+                this.weight = ((Enode)node).frequency;
             }
             else
             {

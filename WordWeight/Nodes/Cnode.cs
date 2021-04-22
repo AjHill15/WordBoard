@@ -9,15 +9,17 @@ namespace WordWeight.Nodes
     class Cnode : Node
     {
         public char character;
-        public int occurence;
+        public int frequency;
+
+        public Cnode() : base() { } //default constructor, do not use.
 
         public Cnode(char character) : base()
         {
             this.character = character;
-            this.occurence = 0;
+            this.frequency = 1;
         }
 
-        public void endPath(string word)
+        public void endPath(string word) //TODO: search to make sure we avoid doubles, unnecessary right now.
         {
             nodes.Add(new Enode(word));
         }

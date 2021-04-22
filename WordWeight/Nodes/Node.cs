@@ -26,7 +26,7 @@ namespace WordWeight.Nodes
                     if(node.character == character)
                     {
                         newNode = false;
-                        node.occurence++;
+                        node.frequency++;
                         nextStep = node;
                         break;
                     }
