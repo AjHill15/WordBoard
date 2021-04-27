@@ -44,7 +44,16 @@ namespace TestApp
         static void testSuggestion(WordTrie trie)
         {
             Console.WriteLine("Enter string:");
-            var results = trie.getSuggestions(Console.ReadLine());
+            var input = Console.ReadLine();
+            var results = trie.getSuggestedLetters(input);
+            if(results != null)
+            {
+                results.AddRange(trie.getSuggestedWords(input));
+            }
+            else
+            {
+                results = trie.getSuggestedWords(input);
+            }
             if (results.Count < 1)
             {
                 Console.WriteLine("No Results!");

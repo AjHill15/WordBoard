@@ -35,9 +35,34 @@ namespace WordWeight
             return array;
         }
 
-        public List<Result> getSuggestions(string input)
+        public List<Result> getSuggestedLetters(string input)
         {
             return origin.getNextChars(input);
+        }
+
+        public List<Result> getSuggestedWords(string input)
+        {
+            List<Result> results = new List<Result>();
+            Node currentNode = origin;
+            foreach(char c in input)
+            {
+                if(currentNode.GetNextHop(c) != null)
+                {
+                    currentNode = currentNode.GetNextHop(c);
+                }
+                else
+                { 
+                    break; 
+                }
+            }
+            if(currentNode != origin && currentNode != null)
+            {
+                foreach(Enode end in currentNode.getAllEnds())
+                {
+                    results.Add(new Result(end));
+                }
+            }
+            return results;
         }
 
         public List<string> getAllWords()
